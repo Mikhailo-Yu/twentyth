@@ -1,6 +1,6 @@
 let laptop = document.getElementById('laptop');
 let computer = document.getElementById('computer');
-let flashlight = document.getElementById('flashligh');
+let flashlight = document.getElementById('flashlight');
 
 let laptopGrey = document.getElementById('laptop-grey');
 let laptopLightgrey = document.getElementById('laptop-lightgrey');
@@ -43,7 +43,7 @@ modalOverlayEl.addEventListener('click',  modalToggleClass);
       const activeEl = document.querySelector('.active');
       if(activeEl) {
         activeEl.classList.remove('active')
-      }
+      }    
         if(event.target.id === 'laptop') {
             laptopList.classList.add('active');
     } else if ( event.target.id === 'computer') {
@@ -59,7 +59,7 @@ modalOverlayEl.addEventListener('click',  modalToggleClass);
       const activeEl1 = document.querySelector('.active1');
       if(activeEl1) {
         activeEl1.classList.remove('active1')
-      }
+      }     
       if (event.target.id === 'laptop-grey') {
         laptopGreyDescription.classList.add('active1');
     }
@@ -88,7 +88,7 @@ modalOverlayEl.addEventListener('click',  modalToggleClass);
       activeEl1.classList.remove('active1');
     }
     modalToggleClass ()
-}
+  }
  }
  function modalToggleClass () {
     modalEl.classList.toggle('d-none');

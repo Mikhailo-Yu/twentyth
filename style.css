@@ -20,7 +20,6 @@ ul {
 .goods__computer.active1,
 .goods__flashlight.active1,
 .laptop-grey.active1,
-.laptop-lightgrey.active1,
 .computer-grey.active1,
 .computer-lightgrey.active1,
 .flashlight-grey.active1,
@@ -34,7 +33,6 @@ ul {
 .goods__computer,
 .goods__flashlight,
 .laptop-grey,
-.laptop-lightgrey,
 .computer-grey,
 .computer-lightgrey,
 .flashlight-grey,
@@ -72,4 +70,33 @@ ul {
 }
 .d-none {
     display: none;
+}
+.goods__item:hover, 
+.list__item:hover {
+ color: red;
+ cursor: pointer;
+ transform: scale(1.2);
+ transition: 0.3s;
+}
+button {
+    padding: 10px 30px;
+    color: brown;
+    border-radius: 5px;
+    background: yellowgreen;
+}
+button:hover {
+    transform: scale(1.2);
+    border: 1px solid red;
+    cursor: pointer;
+}
+#laptop.active,
+#computer.active,
+#flashlight.active,
+#laptop-grey.active1,
+#laptop-lightgrey.active1,
+#computer-grey.active1,
+#computer-lightgrey.active1,
+#flashlight-grey.active1,
+#flashlight-lightgrey.active1 {
+    color: forestgreen;
 }
