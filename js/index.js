@@ -1,7 +1,8 @@
+// Categories
 let laptop = document.getElementById('laptop');
 let computer = document.getElementById('computer');
 let flashlight = document.getElementById('flashlight');
-
+// Products
 let laptopGrey = document.getElementById('laptop-grey');
 let laptopLightgrey = document.getElementById('laptop-lightgrey');
 
@@ -19,13 +20,16 @@ let computerLightgreyDescription = document.querySelector('.computer-lightgrey')
 
 let flashlightGreyDescription = document.querySelector('.flashlight-grey');
 let flashlightLightgreyDescription = document.querySelector('.flashlight-lightgrey');
-
+// Products lists
 let laptopList = document.querySelector('.goods__laptop');
 let computerList = document.querySelector('.goods__computer');
 let flashlightList = document.querySelector('.goods__flashlight');
 let ulCategories = document.querySelector('.list__categories');
 let ulGoods = document.querySelector('.goods__wrap');
 let ulDescription = document.querySelector('.description__wrap');
+
+// form
+let form = document.getElementById('form');
 
 let modalEl = document.querySelector('.modal');
 let modalOverlayEl = document.querySelector('.modal-overlay');
@@ -37,6 +41,13 @@ ulGoods.addEventListener('click', classAdd1);
 ulDescription.addEventListener('click', classRemove);
 closeModal.addEventListener('click',  modalToggleClass);
 modalOverlayEl.addEventListener('click',  modalToggleClass);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if(form.elements.name.value === '') {
+    console.log('erorr');
+    form.elements.name.nextSebling.textContent = 'Bad velue'
+  }
+})
 
  function classAdd (event) {
     if (event.target.tagName === 'P') {
