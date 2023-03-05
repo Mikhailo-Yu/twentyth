@@ -14,6 +14,7 @@ ul {
 .goods__flashlight.active {
     display: block;
 }
+.description__goods.active1,
 .laptop-grey.active1,
 .laptop-lightgrey.active1,
 .goods__laptop.active1,
@@ -68,6 +69,7 @@ ul {
     bottom: 0;
     background-color: rgb(0, 0, 0, 0.5);
 }
+.buyer-list .description__goods,
 .d-none {
     display: none;
 }
@@ -99,4 +101,7 @@ button:hover {
 #flashlight-grey.active1,
 #flashlight-lightgrey.active1 {
     color: forestgreen;
+}
+form small {
+    color: red;
 }

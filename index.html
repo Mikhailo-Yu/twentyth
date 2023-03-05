@@ -11,6 +11,10 @@
 
 <body>
     <div class="container">
+        <div class="buyer-list">
+            <input type="button" name="My order" value="My order">
+
+        </div>
         <div class="categories__wrap">
             <h2 class="title-list">Categories</h2>
             <ul class="list__categories">
@@ -57,89 +61,129 @@
             <h2 class="description__titlee">Goods description</h2>
             <ul class="description__list">
                 <li class="description__item laptop-grey">
-                    <p>Laptop tgrey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 500$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div class="laptop-grey1">
+                        <p>Laptop grey</p>
+                        <div id="laptop-grey-description" class="description__goods laptop-grey-description">
+                            <p>Color: grey</p>
+                            <p>Coast: 500$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
                     <button>Buy</button>
                 </li>
                 <li class="description__item laptop-lightgrey">
-                    <p>Laptop lightgrey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 600$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div>
+                        <p class="laptop-lightgrey1">Laptop lightgrey </p>
+                        <div id="laptop-lightgrey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 600$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
+
                     <button>Buy</button>
                 </li>
                 <li class="description__item computer-grey">
-                    <p>Computer grey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 600$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div>
+                        <p class="computer-grey1">Computer grey</p>
+                        <div id="computer-grey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 600$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
+
                     <button>Buy</button>
                 </li>
                 <li class="description__item computer-lightgrey">
-                    <p>Computer lightgrey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 700$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div>
+                        <p class="computer-grey1">Computer-lightgrey</p>
+                        <div id="computer-lightgrey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 600$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
+
                     <button>Buy</button>
                 </li>
                 <li class="description__item flashlight-grey">
-                    <p>Flashlight grey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 700$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div>
+                        <p class="flashlight-grey1">Computer lightgrey</p>
+                        <div id="flashlight-grey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 700$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
+                    <button>Buy</button>
+                </li>
+                <li class="description__item flashlight-grey">
+                    <div>
+                        <p class="flashlight-grey1">Flashlight grey</p>
+                        <div id="flashlight-grey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 700$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+
+                    </div>
                     <button>Buy</button>
                 </li>
                 <li class="description__item flashlight-lightgrey">
-                    <p>Flashlight lightgrey</p>
-                    <p>Color: grey</p>
-                    <p>Coast: 700$</p>
-                    <p>Keyboard: yes</p>
-                    <p>Bags: yes</p>
+                    <div>
+                        <p class="flashlight-lightgrey1">Flashlight lightgrey</p>
+                        <div id="flashlight-lightgrey-description" class="description__goods">
+                            <p>Color: grey</p>
+                            <p>Coast: 700$</p>
+                            <p>Keyboard: yes</p>
+                            <p>Bags: yes</p>
+                        </div>
+                    </div>
                     <button>Buy</button>
                 </li>
         </div>
         <div class="modal d-none">
             <div class="modal-body">
                 <form action="" id="form">
-                    <div>
+                    <div class="field">
                         <label for="name">Name:</label>
-                        <input type="text" name="name" id="name" placeholder="name">
+                        <input class="requeired" type="text" name="name" id="name" placeholder="name">
                         <small></small>
                     </div>
-                    <div>
+                    <div class="field">
                         <label for="city">City:</label>
-                        <select name="city" id="city">
+                        <select class="requeired" name="city" id="city">
                             <option value="not choice">--</option>
                             <option value="dnipro">Dnipro</option>
                             <option value="kiyv">Kiyv</option>
                             <option value="kharkiv">Kharkiv</option>
-                            <small></small>
                         </select>
+                        <small></small>
                     </div>
-                    <div>
+                    <div class="field">
                         <label for="post">Post Office:</label>
-                        <input type="text" name="post" id="post" placeholder="enter number of post office in you city">
+                        <input class="requeired" type="number" name="post" id="post"
+                            placeholder="enter number of post office in you city">
                         <small></small>
                     </div>
-                    <div>
+                    <div class="field">
                         <span>Select a payment method:</span>
-                        <label for="cash">Cash</label>
-                        <input type="radio" name="cash" id="cash" value="cash">
+                        <label for="pay" id="radio">Cash</label>
+                        <input class="requeired" type="radio" name="pay" id="cash" value="cash">
                         <label for="card">Bank card</label>
-                        <input type="radio" name="card" id="card" value="card">
+                        <input class="requeired" type="radio" name="pay" id="card" value="card">
                         <small></small>
                     </div>
-                    <div>
+                    <div class="field">
                         <label for="city">Choose the number of products:</label>
-                        <select name="number" id="number">
-                            <option value="0">--</option>
+                        <select class="" name="number" id="number">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -148,16 +192,16 @@
                             <small></small>
                         </select>
                     </div>
-                    <div>
+                    <div class="field">
                         <label for="comment">Comment:</label>
-                        <textarea name="comment" rows="10" cols="30">                            </textarea>
+                        <textarea name="comment" rows="10" cols="30"></textarea>
+                    </div>
+                    <div>
+                        <button class="send">Відправити</button>
                     </div>
             </div>
-            <button class="modal-button">Buy</button>
+            <button class="modal-button">Close</button>
             </form>
-
-
-
         </div>
     </div>
     <div class="modal-overlay d-none">

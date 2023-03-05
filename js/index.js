@@ -1,59 +1,149 @@
 // Categories
-let laptop = document.getElementById('laptop');
-let computer = document.getElementById('computer');
-let flashlight = document.getElementById('flashlight');
+const laptop = document.getElementById('laptop');
+const computer = document.getElementById('computer');
+const flashlight = document.getElementById('flashlight');
 // Products
-let laptopGrey = document.getElementById('laptop-grey');
-let laptopLightgrey = document.getElementById('laptop-lightgrey');
+const laptopGrey = document.getElementById('laptop-grey');
+const laptopLightgrey = document.getElementById('laptop-lightgrey');
 
-let computerGrey = document.getElementById('computer-grey');
-let computerLightgrey = document.getElementById('computer-lightgrey');
+const computerGrey = document.getElementById('computer-grey');
+const computerLightgrey = document.getElementById('computer-lightgrey');
 
-let flashlightGrey = document.getElementById('flashlight-grey');
-let flashlightLightgrey = document.getElementById('flashlight-lightgrey');
+const flashlightGrey = document.getElementById('flashlight-grey');
+const flashlightLightgrey = document.getElementById('flashlight-lightgrey');
 
-let laptopGreyDescription = document.querySelector('.laptop-grey');
-let laptopLightgreyDescription = document.querySelector('.laptop-lightgrey');
+const laptopGreyDescription = document.querySelector('.laptop-grey');
+const laptopGreyDescription1 = document.querySelector('.laptop-grey1');
 
-let computerGreyDescription = document.querySelector('.computer-grey');
-let computerLightgreyDescription = document.querySelector('.computer-lightgrey');
 
-let flashlightGreyDescription = document.querySelector('.flashlight-grey');
-let flashlightLightgreyDescription = document.querySelector('.flashlight-lightgrey');
+const laptopLightgreyDescription = document.querySelector('.laptop-lightgrey');
+const laptopLightgreyDescription1 = document.getElementById('laptop-lightgrey-description');
+
+const computerGreyDescription = document.querySelector('.computer-grey');
+const computerGreyDescription1 = document.getElementById('computer-grey-description');
+const computerLightgreyDescription = document.querySelector('.computer-lightgrey');
+const computerLightgreyDescription1 = document.getElementById('flashlight-grey-description');
+
+const flashlightGreyDescription = document.querySelector('.flashlight-grey');
+const flashlightGreyDescription1 = document.getElementById('flashlight-grey-description');
+const flashlightLightgreyDescription = document.querySelector('.flashlight-lightgrey');
+const flashlightLightgreyDescription1 = document.getElementById('flashlight-lightgrey-description');
 // Products lists
-let laptopList = document.querySelector('.goods__laptop');
-let computerList = document.querySelector('.goods__computer');
-let flashlightList = document.querySelector('.goods__flashlight');
-let ulCategories = document.querySelector('.list__categories');
-let ulGoods = document.querySelector('.goods__wrap');
-let ulDescription = document.querySelector('.description__wrap');
+const laptopList = document.querySelector('.goods__laptop');
+const computerList = document.querySelector('.goods__computer');
+const flashlightList = document.querySelector('.goods__flashlight');
+const ulCategories = document.querySelector('.list__categories');
+const ulGoods = document.querySelector('.goods__wrap');
+const ulDescription = document.querySelector('.description__wrap');
 
 // form
-let form = document.getElementById('form');
+const form = document.getElementById('form');
+const formName = document.getElementById('name');
+const formPost = document.getElementById('post');
+const modalEl = document.querySelector('.modal');
+const modalOverlayEl = document.querySelector('.modal-overlay');
+const closeModal = document.querySelector('.modal-button');
+const requiredField = form.querySelectorAll('.requeired');
+const cash =  document.getElementById('cash');
+const card =  document.getElementById('cash');
+const sendBtn = document.querySelector('.send');
+const buyerList = document.querySelector('.buyer-list');
+const descriptionGoods = document.querySelector('.description__goods');
 
-let modalEl = document.querySelector('.modal');
-let modalOverlayEl = document.querySelector('.modal-overlay');
+// Error message 
+const EMPTY_FIELD = 'The field is empty';
+const INCORRECT_VALUE = 'Incorrect value';
+const NOT_CHOICE = 'You did not make a choice';
 
-let closeModal = document.querySelector('.modal-button');
-
+// Listener for magazine
 ulCategories.addEventListener('click', classAdd);
 ulGoods.addEventListener('click', classAdd1);
 ulDescription.addEventListener('click', classRemove);
 closeModal.addEventListener('click',  modalToggleClass);
 modalOverlayEl.addEventListener('click',  modalToggleClass);
+
+// Listener for form
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if(form.elements.name.value === '') {
-    console.log('erorr');
-    form.elements.name.nextSebling.textContent = 'Bad velue'
+  let validForm = true;
+  const activeEl = document.querySelector('.active');
+  const activeEl1 = document.querySelector('.active1');
+  
+  requiredField.forEach((field) => {
+    if(field.value === '') {
+      printError(field.id, EMPTY_FIELD);
+      validForm = false;
+ }
+ if(field.value === '') {
+  printError(field.id, EMPTY_FIELD);
+  validForm = false;
+}
+  });
+  if(form.elements.cash.checked === false && form.elements.card.checked === false) {
+    printError('card', NOT_CHOICE);
+    validForm = false;
   }
+  if(form.elements.city.value === 'not choice') {
+    printError('city', NOT_CHOICE);
+    validForm = false;
+  }
+
+  if (validForm) {
+if(activeEl) {
+      activeEl.classList.remove('active');
+    } 
+    if(activeEl1) {
+      activeEl1.classList.remove('active1');
+    }
+       modalToggleClass ();
+         }
+         
+});
+
+form.addEventListener('change', () => {
+  printError('card', '');
+  printError('city', '');
+});
+
+form.addEventListener('input', (e) => {
+if(e.target.value.length > 0) {
+  printError('name', '');
+  }
+  if(e.target.value.length > 0) {
+    printError('post', '');
+    }    
+});
+
+sendBtn.addEventListener('click', () => {
+  const activeEl1 = document.querySelector('.active1');
+  let clone = activeEl1.firstElementChild.cloneNode(true);
+    buyerList.appendChild(clone);
+    let buttonRemove = document.createElement("button");
+  buttonRemove.innerHTML = 'Remove';
+  clone.appendChild(buttonRemove);
+  
+});
+
+//Лісенер який не працює і я не розумію чому(((
+buyerList.addEventListener('click', (event) => {
+  event.target.classList === 'BUTTON'
+    if(event.target.classList.value.includes('laptop-grey1')){
+      console.log(21); 
+      if (event.target.classList.value.includes('laptop-grey1')) {    
+        laptopGreyDescription1.classList.add('d-none');        
+       }             
+    }
 })
 
- function classAdd (event) {
+function printError (el, erorMessage) {
+  form.elements[el].parentElement.querySelector('small').textContent = erorMessage;
+}
+
+function classAdd (event) {
     if (event.target.tagName === 'P') {
       const activeEl = document.querySelector('.active');
       if(activeEl) {
-        activeEl.classList.remove('active')
+        activeEl.classList.remove('active');
       }    
         if(event.target.id === 'laptop') {
             laptopList.classList.add('active');
@@ -87,21 +177,13 @@ form.addEventListener('submit', (e) => {
     }
     }
  }
-
  function classRemove (event) {
     if (event.target.tagName === 'BUTTON') {
-    const activeEl = document.querySelector('.active');
-    const activeEl1 = document.querySelector('.active1');
-    if(activeEl) {
-      activeEl.classList.remove('active');
-    } 
-    if(activeEl1) {
-      activeEl1.classList.remove('active1');
-    }
-    modalToggleClass ()
+      modalToggleClass ();
   }
  }
  function modalToggleClass () {
     modalEl.classList.toggle('d-none');
     modalOverlayEl.classList.toggle('d-none');
  }
+
