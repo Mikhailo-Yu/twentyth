@@ -122,18 +122,18 @@ sendBtn.addEventListener('click', () => {
   buttonRemove.innerHTML = 'Remove';
   clone.appendChild(buttonRemove);
   
+  updateLocalStorage();
+});
+buyerList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BUTTON') {
+    console.log(21); 
+    const itemToRemove = event.target.closest('div');
+    itemToRemove.remove();
+
+    updateLocalStorage();
+  }
 });
 
-//Лісенер який не працює і я не розумію чому(((
-buyerList.addEventListener('click', (event) => {
-  event.target.classList === 'BUTTON'
-    if(event.target.classList.value.includes('laptop-grey1')){
-      console.log(21); 
-      if (event.target.classList.value.includes('laptop-grey1')) {    
-        laptopGreyDescription1.classList.add('d-none');        
-       }             
-    }
-})
 
 function printError (el, erorMessage) {
   form.elements[el].parentElement.querySelector('small').textContent = erorMessage;
@@ -187,3 +187,24 @@ function classAdd (event) {
     modalOverlayEl.classList.toggle('d-none');
  }
 
+ function updateLocalStorage() {
+  const items = Array.from(buyerList.children);
+  const itemValues = items.map(item => item.textContent.trim());
+  localStorage.setItem('buyerList', JSON.stringify(itemValues));
+}
+
+function loadFromLocalStorage() {
+  const items = JSON.parse(localStorage.getItem('buyerList')) || [];
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.textContent = item;
+
+    const buttonRemove = document.createElement('button');
+    buttonRemove.textContent = 'Remove';
+    div.appendChild(buttonRemove);
+
+    buyerList.appendChild(div);
+  });
+}
+
+loadFromLocalStorage();
